@@ -26,7 +26,7 @@ module Full_adder(
     Half_adder HA1 (.AH(AF), .BH(BF), .CoutH(W1), .SH(W2));// Primera parte del sumador
     Half_adder HA2 (.AH(W2), .BH(CinF), .CoutH(W3), .SH(SF));// Segunda parte del sumador
 
-    assign CoutF = W1 | W3 // Carry de salida
+    assign CoutF = W1 | W3 ;// Carry de salida
 
 endmodule
 //Reppli Carry Adder 
@@ -60,105 +60,105 @@ module RCA(
 endmodule
 
 
-module RCA_tb;
+// module RCA_tb;
 
-    // Entradas
-    reg [15:0] A;
-    reg [15:0] B;
+//     // Entradas
+//     reg [15:0] A;
+//     reg [15:0] B;
 
-    // Salidas
-    wire [31:0] SUM;
+//     // Salidas
+//     wire [31:0] SUM;
 
-    // Variables de tiempo
-    time start, finish;
+//     // Variables de tiempo
+//     time start, finish;
 
-    // Instancia del DUT (Device Under Test)
-    RCA uut (
-        .A(A),
-        .B(B),
-        .S(SUM)
-    );
+//     // Instancia del DUT (Device Under Test)
+//     RCA uut (
+//         .A(A),
+//         .B(B),
+//         .S(SUM)
+//     );
 
-    initial begin
-        // Generar archivo de ondas para GTKWave (opcional)
-        $dumpfile("RCA_tb.vcd");
-        $dumpvars(0, RCA_tb);
+//     initial begin
+//         // Generar archivo de ondas para GTKWave (opcional)
+//         $dumpfile("RCA_tb.vcd");
+//         $dumpvars(0, RCA_tb);
 
-        // Caso 1
-        A = 0; B = 0;
-        start = $time;
-        #1; // esperar que la salida se estabilice
-        finish = $time;
-        $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
-                 finish, A, A, B, B, SUM, SUM, SUM[16]);
-        // Caso 2
-        A = 1; B = 1;
-        start = $time;
-        #1;
-        finish = $time;
-        $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
-                 finish, A, A, B, B, SUM, SUM, SUM[16]);
-        // Caso 3
-        A = 65535; B = 1;
-        start = $time;
-        #1;
-        finish = $time;
-        $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
-                 finish, A, A, B, B, SUM, SUM, SUM[16]);
-        // Caso 4
-        A = 10; B = 5;
-        start = $time;
-        #1;
-        finish = $time;
-        $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
-                 finish, A, A, B, B, SUM, SUM, SUM[16]);
-        // Caso 5
-        A = 32767; B = 1;
-        start = $time;
-        #1;
-        finish = $time;
-        $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
-                 finish, A, A, B, B, SUM, SUM, SUM[16]);
-        // Caso 6
-        A = 61440; B = 3855;
-        start = $time;
-        #1;
-        finish = $time;
-        $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
-                 finish, A, A, B, B, SUM, SUM, SUM[16]);
-        // Caso 7
-        A = 5; B = 3;
-        start = $time;
-        #1;
-        finish = $time;
-        $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
-                 finish, A, A, B, B, SUM, SUM, SUM[16]);
-        // Caso 8
-        A = 43690; B = 21845;
-        start = $time;
-        #1;
-        finish = $time;
-        $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
-                 finish, A, A, B, B, SUM, SUM, SUM[16]);
-        // Caso 9
-        A = 0; B = 21845;
-        start = $time;
-        #1;
-        finish = $time;
-        $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
-                 finish, A, A, B, B, SUM, SUM, SUM[16]);
-        // Caso 10
-        A = 65535; B = 65535;
-        start = $time;
-        #1;
-        finish = $time;
-        $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
-                 finish, A, A, B, B, SUM, SUM, SUM[16]);
-        // Finalizar simulación
-        #10 $finish;
-    end
+//         // Caso 1
+//         A = 0; B = 0;
+//         start = $time;
+//         #1; // esperar que la salida se estabilice
+//         finish = $time;
+//         $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
+//                  finish, A, A, B, B, SUM, SUM, SUM[16]);
+//         // Caso 2
+//         A = 1; B = 1;
+//         start = $time;
+//         #1;
+//         finish = $time;
+//         $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
+//                  finish, A, A, B, B, SUM, SUM, SUM[16]);
+//         // Caso 3
+//         A = 65535; B = 1;
+//         start = $time;
+//         #1;
+//         finish = $time;
+//         $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
+//                  finish, A, A, B, B, SUM, SUM, SUM[16]);
+//         // Caso 4
+//         A = 10; B = 5;
+//         start = $time;
+//         #1;
+//         finish = $time;
+//         $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
+//                  finish, A, A, B, B, SUM, SUM, SUM[16]);
+//         // Caso 5
+//         A = 32767; B = 1;
+//         start = $time;
+//         #1;
+//         finish = $time;
+//         $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
+//                  finish, A, A, B, B, SUM, SUM, SUM[16]);
+//         // Caso 6
+//         A = 61440; B = 3855;
+//         start = $time;
+//         #1;
+//         finish = $time;
+//         $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
+//                  finish, A, A, B, B, SUM, SUM, SUM[16]);
+//         // Caso 7
+//         A = 5; B = 3;
+//         start = $time;
+//         #1;
+//         finish = $time;
+//         $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
+//                  finish, A, A, B, B, SUM, SUM, SUM[16]);
+//         // Caso 8
+//         A = 43690; B = 21845;
+//         start = $time;
+//         #1;
+//         finish = $time;
+//         $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
+//                  finish, A, A, B, B, SUM, SUM, SUM[16]);
+//         // Caso 9
+//         A = 0; B = 21845;
+//         start = $time;
+//         #1;
+//         finish = $time;
+//         $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
+//                  finish, A, A, B, B, SUM, SUM, SUM[16]);
+//         // Caso 10
+//         A = 65535; B = 65535;
+//         start = $time;
+//         #1;
+//         finish = $time;
+//         $display("Time=%0t | A=%b (%0d), B=%b (%0d) -> SUM=%b (%0d), Cout=%b", 
+//                  finish, A, A, B, B, SUM, SUM, SUM[16]);
+//         // Finalizar simulación
+//         #10 $finish;
+//     end
 
-endmodule
+// endmodule
 
 // REF 
 //[1] “Ripple Carry Adder - COMPUTER SCIENCE BYTES,” COMPUTER SCIENCE BYTES, Jul. 12, 2017.
