@@ -75,16 +75,32 @@ module tb_pc_imen;
     end
 
     task display_fields;
+        reg [5:0] opcode;
         begin
+            opcode = instruction_OUTPUT[31:26];
             $display("PC=%0d | Instr=%b", PC_INPUT, instruction_OUTPUT);
-            $display("opcode=%b rs=%b rt=%b rd=%b shamt=%b funct/imm=%b",
-                instruction_OUTPUT[31:26],
-                instruction_OUTPUT[25:21],
-                instruction_OUTPUT[20:16],
-                instruction_OUTPUT[15:11],
-                instruction_OUTPUT[10:6],
-                instruction_OUTPUT[5:0]
-            );
+
+            // Si opcode == 0 → tipo R
+            if (opcode == 6'b000000) begin
+                $display("opcode=%b rs=%b rt=%b rd=%b shamt=%b funct=%b",
+                    instruction_OUTPUT[31:26],
+                    instruction_OUTPUT[25:21],
+                    instruction_OUTPUT[20:16],
+                    instruction_OUTPUT[15:11],
+                    instruction_OUTPUT[10:6],
+                    instruction_OUTPUT[5:0]
+                );
+            end 
+            // Si opcode != 0 → tipo I
+            else begin
+                $display("opcode=%b rs=%b rt=%b immediate=%b",
+                    instruction_OUTPUT[31:26],
+                    instruction_OUTPUT[25:21],
+                    instruction_OUTPUT[20:16],
+                    instruction_OUTPUT[15:0]
+                );
+            end
+
             $display("------------------------------------------------------");
         end
     endtask
