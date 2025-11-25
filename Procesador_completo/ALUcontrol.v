@@ -17,12 +17,14 @@ module ALUControl(
     always @(*) begin
         case(ALUOp)
             2'b00: alu_control = 4'b0000; // MOVI
+            2'b01: alu_control = 4'b0010; // ADDI (suma inmediata)
+            2'b11: alu_control = 4'b0110; // SUBI (resta inmediata)
             2'b10: begin
                 case(funct)
                     6'b100000: alu_control = 4'b0010; // ADD
-                    6'b100100: alu_control = 4'b0110; // SUB
-                    6'b100001: alu_control = 4'b1000; // MULT
-                    6'b100010: alu_control = 4'b1001; // DIV
+                    6'b100010: alu_control = 4'b0110; // SUB
+                    6'b011000: alu_control = 4'b1000; // MULT
+                    6'b011010: alu_control = 4'b1001; // DIV
                     6'b100011: alu_control = 4'b0001; // MOV
                     default:   alu_control = 4'b0000; // Valor por defecto
                 endcase

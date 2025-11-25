@@ -8,8 +8,8 @@
 //y lógicas sobre los datos.
 
 module ALU (
-    input [31:0] src1,  // Primer operando
-    input [31:0] src2,    // Segundo operando
+    input  [31:0] src1,  // Primer operando
+    input  [31:0] src2,    // Segundo operando
     input [3:0] alu_control,  // Señal de control para seleccionar la operación de la ALU
     output reg [31:0] result, // Resultado de la operación
     output reg zero    // Señal que indica si el resultado es cero
@@ -21,6 +21,7 @@ module ALU (
             4'b0110: result = src1 - src2; // resta
             4'b1000: result = src1 * src2; // Multiplicación
             4'b1001: result = src1 / src2; // división
+            4'b0000: result = src2;        // MOVI (pasar inmediato)
             default: result = 32'b0; // Operación por defecto
         endcase
 

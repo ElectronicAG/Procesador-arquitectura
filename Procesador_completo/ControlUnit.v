@@ -44,14 +44,14 @@ module ControlUnit (
                 RegDst = 0;
                 ALUSrc = 1;
                 RegWrite = 1;
-                ALUOp = 2'b00;
+                ALUOp = 2'b01;
             end
 
             6'b001001: begin   // Tipo I, SUBI
                 RegDst = 0;
                 ALUSrc = 1;
                 RegWrite = 1;
-                ALUOp = 2'b00;
+                ALUOp = 2'b11;
             end
 
             6'b000010: begin   // Tipo J

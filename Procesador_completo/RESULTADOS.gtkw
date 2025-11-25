@@ -1,0 +1,55 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Fri Nov 07 07:35:38 2025
+[*]
+[dumpfile] "D:\OneDrive\Escritorio\OneDrive - UVG\UVG\Año 2025\semestre 2\Arquitectura_computadoras\Códigos\Mi_procesador\Procesador_completo\Procesador.vcd"
+[dumpfile_mtime] "Fri Nov 07 00:31:40 2025"
+[dumpfile_size] 30124
+[savefile] "D:\OneDrive\Escritorio\OneDrive - UVG\UVG\Año 2025\semestre 2\Arquitectura_computadoras\Códigos\Mi_procesador\Procesador_completo\RESULTADOS2.gtkw"
+[timestart] 58
+[size] 1530 829
+[pos] -6 0
+*-5.506781 188 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] testbench.
+[treeopen] testbench.fetch_stage.
+[treeopen] testbench.fetch_stage.decode_stage.
+[treeopen] testbench.fetch_stage.decode_stage.execute_stage.
+[sst_width] 279
+[signals_width] 166
+[sst_expanded] 1
+[sst_vpaned_height] 234
+@28
+testbench.clk
+testbench.reset
+@24
+[color] 1
+testbench.fetch_stage.current_pc[31:0]
+[color] 2
+testbench.fetch_stage.next_pc[31:0]
+@28
+testbench.instruction[31:0]
+testbench.fetch_stage.decode_stage.opcode[5:0]
+@24
+testbench.fetch_stage.decode_stage.rs[4:0]
+testbench.fetch_stage.decode_stage.rt[4:0]
+testbench.fetch_stage.decode_stage.rd[4:0]
+@420
+testbench.fetch_stage.decode_stage.read_data1[31:0]
+testbench.fetch_stage.decode_stage.read_data2[31:0]
+@22
+testbench.fetch_stage.decode_stage.register_file_inst.read_reg1[4:0]
+testbench.fetch_stage.decode_stage.register_file_inst.read_reg2[4:0]
+@29
+testbench.fetch_stage.decode_stage.RegWrite
+@420
+testbench.fetch_stage.decode_stage.register_file_inst.write_reg[4:0]
+testbench.fetch_stage.decode_stage.register_file_inst.write_data[31:0]
+@24
+testbench.fetch_stage.decode_stage.execute_stage.alu_inst.src1[31:0]
+testbench.fetch_stage.decode_stage.execute_stage.alu_inst.src2[31:0]
+@420
+testbench.fetch_stage.decode_stage.execute_stage.alu_inst.result[31:0]
+@28
+testbench.fetch_stage.decode_stage.execute_stage.alu_inst.zero
+[pattern_trace] 1
+[pattern_trace] 0
